@@ -112,9 +112,8 @@ function pokemonBattle(pokemon1, pokemon2) {
   console.log(" Defence: " + pokemon2.defence);
   console.log("--------------------------------");
 
-  // Kampflogik
-
-  function pokemonFight(pokemon1, pokemon2) {
+// Kampflogik
+function pokemonFight(pokemon1, pokemon2) {
     while (pokemon1.health > 0 && pokemon2.health > 0) {
       // Berechne den Schaden, den jedes Pokémon im aktuellen Zug verursacht
       const damage1 = pokemon1.power - pokemon2.defence;
@@ -125,8 +124,8 @@ function pokemonBattle(pokemon1, pokemon2) {
       pokemon2.health -= damage1;
     }
   
-    // Bestimme den Sieger basierend auf der verbleibenden Gesundheit
-    if (pokemon1.health <= 0 && pokemon2.health <= 0) {
+// Bestimme den Sieger basierend auf der verbleibenden Gesundheit
+if (pokemon1.health <= 0 && pokemon2.health <= 0) {
       console.log("It's a tie!");
     } else if (pokemon1.health <= 0) {
       console.log(`${pokemon2.name} wins!`);
@@ -139,7 +138,7 @@ function pokemonBattle(pokemon1, pokemon2) {
 
 
 
-  // Fight ends
+// Fight ends
   console.log("--------------------------------");
   console.log("--------------------------------");
   console.log("--------------------------------");

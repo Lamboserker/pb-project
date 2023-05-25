@@ -95,6 +95,25 @@ function showPokemonList() {
   console.log("--------------------------------");
 }
 
+
+// Print the Pokemon Logo
+
+console.log("                             ,'\\");
+console.log("    _.----.        ____         ,'  _\\   ___    ___     ____");
+console.log("_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.");
+console.log("\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |");
+console.log(" \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |");
+console.log("   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |");
+console.log("    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |");
+console.log("     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |");
+console.log("      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |");
+console.log("       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |");
+console.log("        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |");
+console.log("                                `'                            '-._|");
+
+
+
+
 // Funktion, um den Kampf zwischen zwei Pokémon zu simulieren
 function pokemonBattle(pokemon1, pokemon2) {
   console.log("A Fight starts!");
@@ -115,7 +134,7 @@ function pokemonBattle(pokemon1, pokemon2) {
   console.log("--------------------------------");
 
   // Kampflogik
-  while (pokemon1.health > 0 && pokemon2.health > 0) {
+  do  {
     // Berechne den Schaden, den jedes Pokémon im aktuellen Zug verursacht
     const damage1 = pokemon1.power - pokemon2.defence;
     const damage2 = pokemon2.power - pokemon1.defence;
@@ -123,7 +142,7 @@ function pokemonBattle(pokemon1, pokemon2) {
     // Aktualisiere die Gesundheit der Pokémon entsprechend dem verursachten Schaden
     pokemon1.health -= damage2;
     pokemon2.health -= damage1;
-  }
+  } while (pokemon1.health > 0 && pokemon2.health > 0)
 
   // Bestimme den Sieger basierend auf der verbleibenden Gesundheit
   if (pokemon1.health <= 0 && pokemon2.health <= 0) {
@@ -146,11 +165,11 @@ function main() {
   showPokemonList();
 
   // Auswahl des ersten Pokémon
-  const pokemonIndex1 = readline.questionInt("Choose the first Pokémon (Number): ");
+  const pokemonIndex1 = readlineSync.questionInt("Choose the first Pokémon (Number): ");
   const pokemon1 = getPokemonByIndex(pokemonIndex1);
 
   // Auswahl des zweiten Pokémon
-  const pokemonIndex2 = readline.questionInt("Choose the second Pokémon (Number): ");
+  const pokemonIndex2 = readlineSync.questionInt("Choose the second Pokémon (Number): ");
   const pokemon2 = getPokemonByIndex(pokemonIndex2);
 
   // Kampf starten

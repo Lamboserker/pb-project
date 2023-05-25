@@ -1,0 +1,24 @@
+{
+  "name": "pb-project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "This will be my personal Project for the subject: programming basics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lamboserker/pb-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lamboserker/pb-project/issues"
+  },
+  "homepage": "https://github.com/Lamboserker/pb-project#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

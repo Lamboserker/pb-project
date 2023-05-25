@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Lamboserker/pb-project#readme",
   "dependencies": {
+    "art": "^0.10.3",
     "readline-sync": "^1.4.10"
   }
 }

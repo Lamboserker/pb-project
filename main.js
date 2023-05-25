@@ -1,4 +1,4 @@
-const readline = require('readline-sync');
+import readlineSync from 'readline-sync';
 
 const Pikachu = {
   name: "Pikachu",

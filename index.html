@@ -1,24 +1,172 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bash-Konsole im Browser</title>
+    <title>Pokémon Battle</title>
     <style>
-      #console {
-        width: 100%;
-        height: 300px;
-        background-color: black;
-        color: white;
-        font-family: monospace;
-        overflow: auto;
+      body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #ff0000;
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+
+      .container {
+        background-color: #ffffff;
+        border: 2px solid #000000;
+        border-radius: 10px;
+        display: inline-block;
+        padding: 20px;
+      }
+
+      select {
+        font-size: 18px;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #ff0000;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 20px;
+        padding: 10px 20px;
+      }
+
+      button:hover {
+        background-color: #990000;
+      }
+
+      #output {
+        background-color: #efefef;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        margin-top: 20px;
+        padding: 10px;
+        text-align: left;
       }
     </style>
-  </head>
-  <body>
-    <h1>Bash-Konsole im Browser</h1>
-    <div id="console"></div>
-    <input type="text" id="command-input" placeholder="Gib einen Befehl ein">
-    <button onclick="executeCommand()">Ausführen</button>
+    <script>
+      var Pokemon = {
+        Pikachu: {
+          name: "Pikachu",
+          type: "Electric",
+          attacks: ["Thunder Shock", "Quick Attack", "Thunderbolt"],
+        },
+        Glumanda: {
+          name: "Glumanda",
+          type: "Fire",
+          attacks: ["Ember", "Scratch", "Fire Blast"],
+        },
+        Shiggy: {
+          name: "Shiggy",
+          type: "Water",
+          attacks: ["Bubble", "Water Gun", "Hydro Pump"],
+        },
+        Mewtu: {
+          name: "Mewtu",
+          type: "Psychic",
+          attacks: ["Confusion", "Psychic", "Psybeam"],
+        },
+        Abra: {
+          name: "Abra",
+          type: "Psychic",
+          attacks: ["Confusion", "Psybeam", "Shadow Ball"],
+        },
+        Onix: {
+          name: "Onix",
+          type: "Rock",
+          attacks: ["Rock Throw", "Iron Tail", "Earthquake"],
+        },
+        Simsala: {
+          name: "Simsala",
+          type: "Psychic",
+          attacks: ["Confusion", "Psychic", "Shadow Ball"],
+        },
+        Mauzi: {
+          name: "Mauzi",
+          type: "Normal",
+          attacks: ["Scratch", "Bite", "Hyper Beam"],
+        },
+      };
 
-    <script src="script.js"></script>
+      function beautifyOutput(text) {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML += "<p>" + text + "</p>";
+      }
+
+      function showPokemonList() {
+        var select1 = document.getElementById("pokemon1");
+        var select2 = document.getElementById("pokemon2");
+
+        for (var pokemon in Pokemon) {
+          var option1 = document.createElement("option");
+          option1.text = Pokemon[pokemon].name;
+          option1.value = pokemon;
+          select1.add(option1);
+
+          var option2 = document.createElement("option");
+          option2.text = Pokemon[pokemon].name;
+          option2.value = pokemon;
+          select2.add(option2);
+        }
+      }
+
+      function pokemonBattle(selectedPokemon1, selectedPokemon2) {
+        beautifyOutput("The battle begins!");
+
+        var attackIndex1 = Math.floor(
+          Math.random() * selectedPokemon1.attacks.length
+        );
+        var attackIndex2 = Math.floor(
+          Math.random() * selectedPokemon2.attacks.length
+        );
+
+        var attack1 = selectedPokemon1.attacks[attackIndex1];
+        var attack2 = selectedPokemon2.attacks[attackIndex2];
+
+        beautifyOutput(selectedPokemon1.name + " uses " + attack1 + "!");
+        beautifyOutput(selectedPokemon2.name + " uses " + attack2 + "!");
+
+        // Weitere Logik zur Berechnung des Schadens und der Ausgabe des Ergebnisses
+      }
+
+      function startBattle() {
+        var pokemonIndex1 = document.getElementById("pokemon1").value;
+        var pokemonIndex2 = document.getElementById("pokemon2").value;
+
+        var selectedPokemon1 = Pokemon[pokemonIndex1];
+        var selectedPokemon2 = Pokemon[pokemonIndex2];
+
+        pokemonBattle(selectedPokemon1, selectedPokemon2);
+      }
+    </script>
+  </head>
+  <body onload="showPokemonList()">
+    <h1>Pokémon Battle</h1>
+    <div class="container">
+      <h2>Choose Pokémon:</h2>
+      <label for="pokemon1">Pokemon 1:</label>
+      <select id="pokemon1"></select>
+
+      <br /><br />
+
+      <label for="pokemon2">Pokemon 2:</label>
+      <select id="pokemon2"></select>
+
+      <br /><br />
+
+      <button onclick="startBattle()">Start Battle</button>
+    </div>
+
+    <div id="output"></div>
   </body>
 </html>

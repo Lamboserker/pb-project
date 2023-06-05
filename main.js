@@ -319,20 +319,32 @@ function showAttackList(pokemon) {
 
 // Function to calculate the damage multiplier based on type advantage
 function calculateAdvantage(attackerType, defenderType) {
-  if (attackerType === "electricity" && defenderType === "water") {
-    return 2; // Electricity is super effective against Water
-  } else if (attackerType === "water" && defenderType === "fire") {
-    return 2; // Water is super effective against Fire
-  } else if (attackerType === "fire" && defenderType === "grass") {
-    return 2; // Fire is super effective against Grass
-  } else if (attackerType === "grass" && defenderType === "fire") {
-    return 2; // Grass is super effective against Fire
-  } else if (attackerType === "psychic" && defenderType === "rock") {
-    return 2; // Psychic is super effective against Rock
-  } else {
-    return 1; // No advantage
+  if (attackerType === "electricity") {
+    if (defenderType === "water") return 2;
+    if (defenderType === "rock") return 0.5;
   }
+  if (attackerType === "fire") {
+    if (defenderType === "grass") return 2;
+    if (defenderType === "water") return 0.5;
+  }
+  if (attackerType === "water") {
+    if (defenderType === "fire") return 2;
+    if (defenderType === "electricity") return 0.5;
+  }
+  if (attackerType === "grass") {
+    if (defenderType === "water") return 2;
+    if (defenderType === "fire") return 0.5;
+  }
+  if (attackerType === "rock") {
+    if (defenderType === "fire") return 2;
+    if (defenderType === "electricity") return 0.5;
+  }
+  if (attackerType === "psychic") {
+    if (defenderType === "psychic") return 0.5;
+  }
+  return 1;
 }
+
 
 // Print the Pokemon Logo
 beautifyOutput(`WELCOME TO THE POKEMON DUEL SIMULATOR

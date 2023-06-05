@@ -1,12 +1,14 @@
 import readlineSync from "readline-sync";
-
 import play from "play-sound";
+
+
 
 const player = play();
 
 player.play("music/music.wav", (err) => {
   if (err) throw err;
 });
+
 
 const Pikachu = {
   name: "Pikachu",
@@ -219,6 +221,22 @@ const Onix = {
     { name: "Rock Throw", power: 80 },
     { name: "Earthquake", power: 150 },
   ],
+
+  picture: `  
+  _____   _______
+  /       \/   |    \
+/ |        |   |    |
+|  \_______/\,__|__, /
+\____/    / _.\|  /._\
+/    \    \_  ,     _/
+|    |      \__|.__/
+\___/_       \!!!!/         ()
+ /    \               ___  _/\
+ |    |    ____  ___ /   \/ \/
+ \____/,,_/    \/   \     \_/
+   \     |     |     |\__/                  
+    \____\_____/\___/      
+  `,
 };
 
 const Simsala = {
@@ -233,6 +251,7 @@ const Simsala = {
     { name: "Psybeam", power: 120 },
     { name: "Shadow Ball", power: 140 },
   ],
+  
 };
 
 const Mauzi = {
@@ -260,6 +279,8 @@ const Mauzi = {
 ⠀⠀⠀⠀⠀⠀⣀⣀⣀⠧⣀⣀⠀⢀⡔⠻⠴⣛⣁⠀⠀
 ⠀⠀⠀⠀⠀⢿⣶⣾⣿⡶⠕⠛⠉⠉⠒⢴⣯⣴⣾⡿⠀`,
 };
+
+
 // Function to beautify the output
 function beautifyOutput(text) {
   console.log(
@@ -285,6 +306,7 @@ function showPokemonList() {
   console.log("8. Mauzi");
   console.log("--------------------------------");
 }
+console.clear();
 
 // Function to display the attack list for a Pokémon
 function showAttackList(pokemon) {
@@ -293,6 +315,7 @@ function showAttackList(pokemon) {
     console.log(`${i + 1}. ${pokemon.attacks[i].name}`);
   }
 }
+
 
 // Function to calculate the damage multiplier based on type advantage
 function calculateAdvantage(attackerType, defenderType) {
@@ -328,6 +351,7 @@ _,-'       \`.     |    |  /'.   \\,-'    |   \\  /   |   |    \\  |\`.
 
 // Function to simulate a Pokémon battle
 function pokemonBattle(pokemon1, pokemon2) {
+  console.clear();
   beautifyOutput("A fight starts!");
 
   // show a picture of the choosen Pokemon
@@ -345,6 +369,7 @@ function pokemonBattle(pokemon1, pokemon2) {
   Health: ${pokemon2.health})
   Picture: ${pokemon2.picture}`);
 
+  
   // Battle logic
   do {
     // Pokémon 1 attacks Pokémon 2

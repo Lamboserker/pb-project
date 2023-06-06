@@ -1,14 +1,11 @@
 import readlineSync from "readline-sync";
 import play from "play-sound";
 
-
-
 const player = play();
 
 player.play("music/music.wav", (err) => {
   if (err) throw err;
 });
-
 
 const Pikachu = {
   name: "Pikachu",
@@ -71,7 +68,7 @@ const Glumanda = {
   height: 125,
   power: 150,
   defence: 700,
-  health: 1000,
+  health: 1200,
   advantage: undefined,
   attacks: [
     { name: "Ember", power: 90 },
@@ -108,7 +105,7 @@ const Shiggy = {
   height: 125,
   power: 250,
   defence: 400,
-  health: 1000,
+  health: 800,
   advantage: undefined,
   attacks: [
     { name: "Water Gun", power: 100 },
@@ -149,7 +146,7 @@ const Mewtu = {
   height: 200,
   power: 850,
   defence: 300,
-  health: 1000,
+  health: 2000,
   advantage: undefined,
   attacks: [
     { name: "Psycho Blast", power: 200 },
@@ -188,7 +185,7 @@ const Abra = {
   height: 180,
   power: 250,
   defence: 400,
-  health: 1000,
+  health: 800,
   advantage: undefined,
   attacks: [
     { name: "Confusion", power: 100 },
@@ -215,7 +212,7 @@ const Onix = {
   height: 900,
   power: 150,
   defence: 1200,
-  health: 1000,
+  health: 1100,
   advantage: undefined,
   attacks: [
     { name: "Rock Throw", power: 80 },
@@ -245,13 +242,12 @@ const Simsala = {
   height: 210,
   power: 250,
   defence: 400,
-  health: 1000,
+  health: 1400,
   advantage: undefined,
   attacks: [
     { name: "Psybeam", power: 120 },
     { name: "Shadow Ball", power: 140 },
   ],
-  
 };
 
 const Mauzi = {
@@ -260,7 +256,7 @@ const Mauzi = {
   height: 50,
   power: 133,
   defence: 430,
-  health: 1000,
+  health: 700,
   advantage: undefined,
   attacks: [
     { name: "Scratch", power: 70 },
@@ -279,7 +275,6 @@ const Mauzi = {
 ⠀⠀⠀⠀⠀⠀⣀⣀⣀⠧⣀⣀⠀⢀⡔⠻⠴⣛⣁⠀⠀
 ⠀⠀⠀⠀⠀⢿⣶⣾⣿⡶⠕⠛⠉⠉⠒⢴⣯⣴⣾⡿⠀`,
 };
-
 
 // Function to beautify the output
 function beautifyOutput(text) {
@@ -316,7 +311,6 @@ function showAttackList(pokemon) {
   }
 }
 
-
 // Function to calculate the damage multiplier based on type advantage
 function calculateAdvantage(attackerType, defenderType) {
   if (attackerType === "electricity") {
@@ -344,7 +338,6 @@ function calculateAdvantage(attackerType, defenderType) {
   }
   return 1;
 }
-
 
 // Print the Pokemon Logo
 beautifyOutput(`WELCOME TO THE POKEMON DUEL SIMULATOR
@@ -381,7 +374,6 @@ function pokemonBattle(pokemon1, pokemon2) {
   Health: ${pokemon2.health})
   Picture: ${pokemon2.picture}`);
 
-  
   // Battle logic
   do {
     // Pokémon 1 attacks Pokémon 2

@@ -21,6 +21,7 @@ class Pokemon {
   }
 }
 
+// Define different Pokemon instances
 const Pikachu = new Pokemon(
   "Pikachu",
   "electricity",
@@ -117,7 +118,7 @@ const Shiggy = new Pokemon(
   125,
   250,
   400,
-  1000,
+  800,
   [
     { name: "Water Gun", power: 100 },
     { name: "Bubble", power: 80 },
@@ -157,7 +158,7 @@ const Mewtu = new Pokemon(
   200,
   850,
   300,
-  1000,
+  2000,
   [
     { name: "Psycho Blast", power: 200 },
     { name: "Psychic", power: 180 },
@@ -195,7 +196,7 @@ const Abra = new Pokemon(
   180,
   250,
   400,
-  1000,
+  800,
   [
     { name: "Confusion", power: 100 },
     { name: "Psybeam", power: 120 },
@@ -221,7 +222,7 @@ const Onix = new Pokemon(
   900,
   150,
   1200,
-  1000,
+  1200,
   [
     { name: "Rock Throw", power: 80 },
     { name: "Earthquake", power: 150 },
@@ -249,7 +250,7 @@ const Simsala = new Pokemon(
   210,
   250,
   400,
-  1000,
+  800,
   [
     { name: "Psybeam", power: 120 },
     { name: "Shadow Ball", power: 140 },
@@ -281,6 +282,7 @@ const Mauzi = new Pokemon(
   ``
 );
 
+// function to beautify the output
 function beautifyOutput(text) {
   console.log(
     "\n===================================================================="
@@ -291,15 +293,19 @@ function beautifyOutput(text) {
   );
 }
 
+// function to calculate the damage
 function getAttackDamage(attacker, defender, attack) {
   const effectiveness = getEffectiveness(attacker.type, defender.type);
   const damage = Math.round(
-    ((attack.power * attacker.power) / (defender.defence * 10)) * effectiveness
+    (attacker.power / defender.defence) * attack.power * effectiveness
   );
   return damage;
 }
 
+// function to calculate the effectiveness of the attack
 function getEffectiveness(attackerType, defenderType) {
+  if (attackerType === defenderType) return 1; //same type, effectiveness is 1
+
   if (attackerType === "electricity") {
     if (defenderType === "water") return 2;
     if (defenderType === "rock") return 0.5;
@@ -323,9 +329,11 @@ function getEffectiveness(attackerType, defenderType) {
   if (attackerType === "psychic") {
     if (defenderType === "psychic") return 0.5;
   }
-  return 1;
+
+  return 1; // default effectiveness is 1
 }
 
+// Function to prompt the player to select a Pokemon
 async function selectPokemon(pokemons) {
   const choices = pokemons.map((pokemon) => {
     return { name: pokemon.name, value: pokemon };
@@ -343,6 +351,7 @@ async function selectPokemon(pokemons) {
   return selectedPokemon;
 }
 
+// Function to prompt the player to select an attack
 async function selectAttack(attacks) {
   const choices = attacks.map((attack) => {
     return { name: attack.name, value: attack };
@@ -360,6 +369,7 @@ async function selectAttack(attacks) {
   return selectedAttack;
 }
 
+// Function to simulate a battle between two Pokemon
 async function battle(playerPokemon, computerPokemon) {
   beautifyOutput(`A wild ${computerPokemon.name} has appeared!\n`);
 
@@ -405,8 +415,21 @@ async function battle(playerPokemon, computerPokemon) {
   }
 }
 
+// Function to start the game
 async function startGame() {
-  beautifyOutput("Welcome to Pokémon Battle!\n");
+  beautifyOutput(`WELCOME TO THE POKEMON DUEL SIMULATOR
+                                   ,'\\
+    _.----.        ____         ,'  _\\   ___    ___     ____
+_,-'       \`.     |    |  /'.   \\,-'    |   \\  /   |   |    \\  |\`.
+\\      __    \\    '-.  | /   \`.  ___    |    \\/    |   '-.   \\ |  |
+ \\.    \\ \\   |  __  |  |/    ,','_  \`.  |          | __  |    \\|  |
+   \\    \\/   /,' _\`.|      ,' / / / /   |          ,' _\`.|     |  |
+    \\     ,'-'/  /   \\    ,'   | \\/ / ,\`.|         /  /   \\  |     |
+     \\    \\ |   \\_/  |   \`-.  \\    \`'  /|  |    ||   \\_/  | |\\    |
+      \\    \\ \\      /       \`-.\`.___,-' |  |\\  /| \\      /  | |   |
+       \\    \\ \`.__,'|  |\`-._    \`|      |__| \\/ |  \`.__,'|  | |   |
+        \\_.-'       |__|    \`-._ |              '-.|     '-.| |   |
+                                \`'                            '-._|\n`);
 
   const playerPokemon = await selectPokemon([
     Pikachu,
@@ -451,4 +474,5 @@ async function startGame() {
   }
 }
 
-startGame();
+// Start the game
+startGame(); 

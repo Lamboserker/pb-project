@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokémon Duel Simulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .pokemon-list {
+      margin-bottom: 20px;
+    }
+    
+    .pokemon-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .pokemon-card h3 {
+      margin-top: 0;
+    }
+    
+    .pokemon-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    
+    .battle-log {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      min-height: 200px;
+    }
+    
+    .battle-buttons {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pokémon Duel Simulator</h1>
+    
+    <div class="pokemon-list">
+      <div class="pokemon-card">
+        <h3>Pikachu</h3>
+        <img src="path/to/pikachu-image.jpg" alt="Pikachu">
+        <button onclick="selectPokemon(Pikachu)">Choose Pikachu</button>
+      </div>
+      
+      <div class="pokemon-card">
+        <h3>Charizard</h3>
+        <img src="path/to/charizard-image.jpg" alt="Charizard">
+        <button onclick="selectPokemon(Charizard)">Choose Charizard</button>
+      </div>
+      
+      <div class="pokemon-card">
+        <h3>Bulbasaur</h3>
+        <img src="path/to/bulbasaur-image.jpg" alt="Bulbasaur">
+        <button onclick="selectPokemon(Bulbasaur)">Choose Bulbasaur</button>
+      </div>
+      
+      <div class="pokemon-card">
+        <h3>Squirtle</h3>
+        <img src="path/to/squirtle-image.jpg" alt="Squirtle">
+        <button onclick="selectPokemon(Squirtle)">Choose Squirtle</button>
+      </div>
+      
+      <div class="pokemon-card">
+        <h3>Charmander</h3>
+        <img src="path/to/charmander-image.jpg" alt="Charmander">
+        <button onclick="selectPokemon(Charmander)">Choose Charmander</button>
+      </div>
+      
+      <div class="pokemon-card">
+        <h3>Jigglypuff</h3>
+        <img src="path/to/jigglypuff-image.jpg" alt="Jigglypuff">
+        <button onclick="selectPokemon(Jigglypuff)">Choose Jigglypuff</button>
+      </div>
+      
+      <div class="pokemon-card">
+        <h3>Snorlax</h3>
+        <img src="path/to/snorlax-image.jpg" alt="Snorlax">
+        <button onclick="selectPokemon(Snorlax)">Choose Snorlax</button>
+      </div>
+      
+      <div class="pokemon-card">
+        <h3>Mewtwo</h3>
+        <img src="path/to/mewtwo-image.jpg" alt="Mewtwo">
+        <button onclick="selectPokemon(Mewtwo)">Choose Mewtwo</button>
+      </div>
+    </div>
+    
+    <div class="battle-log">
+      <h2>Battle Log</h2>
+      <ul id="log-list"></ul>
+    </div>
+    
+    <div class="battle-buttons" style="display: none;">
+      <select id="attack-select"></select>
+      <button onclick="attack()">Attack</button>
+    </div>
+  </div>
+
+  <script>
+    class Pokemon {
+      constructor(name, image, type, power, defence, advantage, attacks) {
+        this.name = name;
+        this.image = image;
+        this.type = type;
+        this.power = power;
+        this.defence = defence;
+        this.advantage = advantage;
+        this.health = 100;
+        this.attacks = attacks;
+      }
+    }
+    
+    const Pikachu = new Pokemon(
+      "Pikachu",
+      "path/to/pikachu-image.jpg",
+      "Electric",
+      10,
+      5,
+      null,
+      [
+        { name: "Thunder Shock", power: 20 },
+        { name: "Quick Attack", power: 15 }
+      ]
+    );
+    
+    const Charizard = new Pokemon(
+      "Charizard",
+      "path/to/charizard-image.jpg",
+      "Fire",
+      12,
+      8,
+      "Grass",
+      [
+        { name: "Flamethrower", power: 25 },
+        { name: "Wing Attack", power: 18 }
+      ]
+    );
+    
+    const Bulbasaur = new Pokemon(
+      "Bulbasaur",
+      "path/to/bulbasaur-image.jpg",
+      "Grass",
+      8,
+      6,
+      "Water",
+      [
+        { name: "Vine Whip", power: 15 },
+        { name: "Razor Leaf", power: 20 }
+      ]
+    );
+    
+    const Squirtle = new Pokemon(
+      "Squirtle",
+      "path/to/squirtle-image.jpg",
+      "Water",
+      9,
+      7,
+      "Fire",
+      [
+        { name: "Water Gun", power: 18 },
+        { name: "Bubble Beam", power: 15 }
+      ]
+    );
+    
+    const Charmander = new Pokemon(
+      "Charmander",
+      "path/to/charmander-image.jpg",
+      "Fire",
+      8,
+      6,
+      "Grass",
+      [
+        { name: "Ember", power: 16 },
+        { name: "Scratch", power: 12 }
+      ]
+    );
+    
+    const Jigglypuff = new Pokemon(
+      "Jigglypuff",
+      "path/to/jigglypuff-image.jpg",
+      "Normal",
+      7,
+      5,
+      null,
+      [
+        { name: "Pound", power: 12 },
+        { name: "Rollout", power: 15 }
+      ]
+    );
+    
+    const Snorlax = new Pokemon(
+      "Snorlax",
+      "path/to/snorlax-image.jpg",
+      "Normal",
+      11,
+      10,
+      null,
+      [
+        { name: "Body Slam", power: 22 },
+        { name: "Hyper Beam", power: 30 }
+      ]
+    );
+    
+    const Mewtwo = new Pokemon(
+      "Mewtwo",
+      "path/to/mewtwo-image.jpg",
+      "Psychic",
+      15,
+      12,
+      null,
+      [
+        { name: "Psychic", power: 25 },
+        { name: "Shadow Ball", power: 20 }
+      ]
+    );
+    
+    let selectedPokemon = null;
+    let opponentPokemon = null;
+    let battleStarted = false;
+    
+    function selectPokemon(pokemon) {
+      selectedPokemon = pokemon;
+      document.querySelector(".battle-buttons").style.display = "block";
+      logMessage(`You selected ${selectedPokemon.name}`);
+    }
+    
+    function logMessage(message) {
+      const logList = document.getElementById("log-list");
+      const listItem = document.createElement("li");
+      listItem.textContent = message;
+      logList.appendChild(listItem);
+    }
+    
+    function attack() {
+      if (!battleStarted) {
+        startBattle();
+        return;
+      }
+    
+      const selectedAttack = document.getElementById("attack-select").value;
+    
+      const playerDamage = selectedPokemon.attacks[selectedAttack].power;
+      const opponentDamage = opponentPokemon.attacks[Math.floor(Math.random() * opponentPokemon.attacks.length)].power;
+    
+      selectedPokemon.health -= opponentDamage;
+      opponentPokemon.health -= playerDamage;
+    
+      logMessage(`${selectedPokemon.name} dealt ${playerDamage} damage to ${opponentPokemon.name}`);
+      logMessage(`${opponentPokemon.name} dealt ${opponentDamage} damage to ${selectedPokemon.name}`);
+    
+      if (selectedPokemon.health <= 0 && opponentPokemon.health <= 0) {
+        logMessage("It's a tie!");
+        endBattle();
+      } else if (selectedPokemon.health <= 0) {
+        logMessage(`${opponentPokemon.name} wins!`);
+        endBattle();
+      } else if (opponentPokemon.health <= 0) {
+        logMessage(`${selectedPokemon.name} wins!`);
+        endBattle();
+      }
+    }
+    
+    function startBattle() {
+      opponentPokemon = generateRandomPokemon();
+      battleStarted = true;
+    
+      logMessage(`Battle started! You are facing ${opponentPokemon.name}`);
+    
+      const attackSelect = document.getElementById("attack-select");
+      attackSelect.innerHTML = "";
+    
+      selectedPokemon.attacks.forEach((attack, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.text = attack.name;
+        attackSelect.appendChild(option);
+      });
+    }
+    
+    function endBattle() {
+      battleStarted = false;
+      selectedPokemon = null;
+      opponentPokemon = null;
+    
+      document.querySelector(".battle-buttons").style.display = "none";
+    }
+    
+    function generateRandomPokemon() {
+      const pokemonList = [Pikachu, Charizard, Bulbasaur, Squirtle, Charmander, Jigglypuff, Snorlax, Mewtwo];
+      const randomIndex = Math.floor(Math.random() * pokemonList.length);
+      return pokemonList[randomIndex];
+    }
+  </script>
+</body>
+</html>

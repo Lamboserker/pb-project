@@ -27,7 +27,7 @@ const Pikachu = new Pokemon(
   "electricity",
   100,
   250,
-  400,
+  1000,
   1000,
   [
     { name: "Thunder Shock", power: 100 },
@@ -81,7 +81,7 @@ const Glumanda = new Pokemon(
   "fire",
   125,
   150,
-  700,
+  1700,
   1000,
   [
     { name: "Ember", power: 90 },
@@ -117,7 +117,7 @@ const Shiggy = new Pokemon(
   "water",
   125,
   250,
-  400,
+  800,
   800,
   [
     { name: "Water Gun", power: 100 },
@@ -157,7 +157,7 @@ const Mewtu = new Pokemon(
   "psychic",
   200,
   850,
-  300,
+  100,
   2000,
   [
     { name: "Psycho Blast", power: 200 },
@@ -195,7 +195,7 @@ const Abra = new Pokemon(
   "psychic",
   180,
   250,
-  400,
+  900,
   800,
   [
     { name: "Confusion", power: 100 },
@@ -221,7 +221,7 @@ const Onix = new Pokemon(
   "rock",
   900,
   150,
-  1200,
+  200,
   1200,
   [
     { name: "Rock Throw", power: 80 },

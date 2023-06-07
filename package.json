@@ -21,6 +21,7 @@
   "dependencies": {
     "art": "^0.10.3",
     "figlet": "^1.6.0",
+    "find-exec": "^1.0.2",
     "inquirer": "^9.2.7",
     "play-sound": "^1.1.5",
     "readline-sync": "^1.4.10"

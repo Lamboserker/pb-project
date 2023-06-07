@@ -14,12 +14,7 @@
       background-image: url(img/pokemon-g88a2110bf_1280.jpg);
       background-position: center top;
       background-size: 100% auto;
-      
-      
-  
-      
-      
-      
+     
     }
     
     .container {
@@ -27,7 +22,21 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+      visibility: hidden;
+      opacity: 0;
+      animation: fade-in 2s ease-in-out forwards;
     }
+
+    @keyframes fade-in {
+      0% { opacity: 0; }
+      10% { opacity: 0.1; }
+      30% { opacity: 0.3; }
+      50% { opacity: 0.5; }
+      70% { opacity: 0.7; }
+      90% { opacity: 0.9; }
+      100% { opacity: 1; visibility: visible; }
+    }
+
     .container h1 {
     font-family: 'Pokemon Solid', sans-serif;
     color: #ff0000;
@@ -41,21 +50,144 @@
       margin-bottom: 20px;
     }
     
-    .pokemon-card {
+    .pokemon-card1{
       border: 1px solid #ccc;
       border-radius: 5px;
       padding: 10px;
       margin-bottom: 10px;
-      background-color: rgba(42, 45, 90, 0.788);
+      background-image: url(/img/ai-generated-g67299aed9_640.jpg);
+      background-position: center;
+      text-align: center;
+      
+    }
+
+
+    .pokemon-card1:hover {
+    background-attachment: fixed;
+
+
+}
+
+
+
+   .pokemon-card2 {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-image: url(/img/charizard-detective-pikachu-1160174.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
       text-align: center;
     }
 
-    .pokemon-card img {
+    .pokemon-card2:hover {
 
-    max-width: 640px;
-    max-height: 1200px;
+background-attachment: fixed;
+}
 
+   .pokemon-card3 {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-image: url(/img/bulbasaur-g4d1bc4976_640.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
     }
+    .pokemon-card3:hover {
+
+background-attachment: fixed;
+}
+    .pokemon-card4 {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-image: url(/img/jason-hunt-squirtle.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  
+}
+
+.pokemon-card4:hover {
+
+  background-attachment: fixed;
+}
+
+
+
+   .pokemon-card5 {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-image: url(/img/5a99c488dc213c7b73e507e68c07ea0d.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+    .pokemon-card5:hover {
+
+background-attachment: fixed;
+}
+
+
+    .pokemon-card6 {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-image: url(/img/0f10d76ff7d039f13e6cbf710645aa43.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+
+    .pokemon-card6:hover {
+
+background-attachment: fixed;
+}
+
+    .pokemon-card7 {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-image: url(/img/7097e951d4a247dfd5fcc89e94c36a62.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .pokemon-card7:hover {
+
+background-attachment: fixed;
+}
+
+   .pokemon-card8 {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-image: url(/img/Mewtwo-1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+
+    .pokemon-card8:hover {
+
+    background-attachment: fixed;
+}
+    
 
     button {
       margin: 3rem;
@@ -69,17 +201,11 @@
       background: linear-gradient(#ff0000, #3a3f72);
     }
     
-    .pokemon-card h3 {
+    .pokemon-card1 h3, .pokemon-card2 h3, .pokemon-card3 h3, .pokemon-card4 h3, .pokemon-card5 h3, .pokemon-card6 h3, .pokemon-card7 h3, .pokemon-card8 h3 {
       margin-top: 0;
       font-family: 'Pokemon Solid', sans-serif;
       font-size:xx-large;
 
-    }
-    
-    .pokemon-card img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 10px;
     }
     
     .battle-log {
@@ -116,55 +242,49 @@
   </style>
 </head>
 <body>
+  
   <div class="container">
+    <div class="flash"></div>
     <h1>Pokémon Duel Simulator</h1>
     
     <div class="pokemon-list">
-      <div class="pokemon-card">
+      <div class="pokemon-card1">
         <h3>Pikachu</h3>
-        <img src="/img/ai-generated-g67299aed9_640.jpg" alt="Pikachu">
         <button onclick="selectPokemon(Pikachu)">Choose Pikachu</button>
       </div>
       
-      <div class="pokemon-card">
+      <div class="pokemon-card2">
         <h3>Charizard</h3>
-        <img src="/img/charizard-detective-pikachu-1160174.jpg" alt="Charizard">
         <button onclick="selectPokemon(Charizard)">Choose Charizard</button>
       </div>
       
-      <div class="pokemon-card">
+      <div class="pokemon-card3">
         <h3>Bulbasaur</h3>
-        <img src="/img/bulbasaur-g4d1bc4976_640.jpg" alt="Bulbasaur">
         <button onclick="selectPokemon(Bulbasaur)">Choose Bulbasaur</button>
       </div>
       
-      <div class="pokemon-card">
+      <div class="pokemon-card4">
         <h3>Squirtle</h3>
-        <img src="/img/jason-hunt-squirtle.jpg" alt="Squirtle">
         <button onclick="selectPokemon(Squirtle)">Choose Squirtle</button>
       </div>
       
-      <div class="pokemon-card">
+      <div class="pokemon-card5">
         <h3>Charmander</h3>
-        <img src="/img/5a99c488dc213c7b73e507e68c07ea0d.jpg" alt="Charmander">
         <button onclick="selectPokemon(Charmander)">Choose Charmander</button>
       </div>
       
-      <div class="pokemon-card">
+      <div class="pokemon-card6">
         <h3>Jigglypuff</h3>
-        <img src="/img/0f10d76ff7d039f13e6cbf710645aa43.jpg" alt="Jigglypuff">
         <button onclick="selectPokemon(Jigglypuff)">Choose Jigglypuff</button>
       </div>
       
-      <div class="pokemon-card">
+      <div class="pokemon-card7">
         <h3>Snorlax</h3>
-        <img src="/img/7097e951d4a247dfd5fcc89e94c36a62.jpg" alt="Snorlax">
         <button onclick="selectPokemon(Snorlax)">Choose Snorlax</button>
       </div>
       
-      <div class="pokemon-card">
+      <div class="pokemon-card8">
         <h3>Mewtwo</h3>
-        <img src="/img/Mewtwo-1.jpg" alt="Mewtwo">
         <button onclick="selectPokemon(Mewtwo)">Choose Mewtwo</button>
       </div>
     </div>
@@ -179,6 +299,8 @@
       <button onclick="attack()">Attack</button>
     </div>
   </div>
+  
+
 
   <script>
     class Pokemon {
@@ -374,6 +496,7 @@
       const randomIndex = Math.floor(Math.random() * pokemonList.length);
       return pokemonList[randomIndex];
     }
+  
   </script>
 </body>
 </html>

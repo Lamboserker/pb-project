@@ -2,22 +2,38 @@
 <html>
 <head>
   <title>Pokémon Duel Simulator</title>
+  <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+                
   <style>
+    @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
     body {
       font-family: Arial, sans-serif;
       background-image: url(img/pokemon-g88a2110bf_1280.jpg);
+      background-position: center top;
+      background-size: 100% auto;
+      
+      
+  
+      
       
       
     }
     
     .container {
       border-radius: 10px;
-      background-color: rgba(42, 45, 90, 0.788);
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
-    
+    .container h1 {
+    font-family: 'Pokemon Solid', sans-serif;
+    color: #ff0000;
+    text-align: center;
+
+
+    }
+
+
     .pokemon-list {
       margin-bottom: 20px;
     }
@@ -27,10 +43,34 @@
       border-radius: 5px;
       padding: 10px;
       margin-bottom: 10px;
+      background-color: rgba(42, 45, 90, 0.788);
+      text-align: center;
+    }
+
+    .pokemon-card img {
+
+    max-width: 640px;
+    max-height: 1200px;
+
+    }
+
+    button {
+      margin: 3rem;
+      border: 5px solid #212122;
+      border-radius: 10px;
+      font-family: 'Pokemon Solid', sans-serif;
+      font-size: large;
+      color: #251c1c;
+      background: #FFFFFF;
+      text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+      background: linear-gradient(#ff0000, #3a3f72);
     }
     
     .pokemon-card h3 {
       margin-top: 0;
+      font-family: 'Pokemon Solid', sans-serif;
+      
+
     }
     
     .pokemon-card img {
@@ -40,6 +80,8 @@
     }
     
     .battle-log {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      background: linear-gradient(#ff0000, #3a3f72);
       border: 1px solid #ccc;
       border-radius: 5px;
       padding: 10px;
@@ -50,6 +92,17 @@
     .battle-buttons {
       margin-top: 10px;
     }
+
+    .selector {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      height: 2rem;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border: none;
+
+    }
+
   </style>
 </head>
 <body>
@@ -112,7 +165,7 @@
     </div>
     
     <div class="battle-buttons" style="display: none;">
-      <select id="attack-select"></select>
+      <select id="attack-select" class="selector"></select>
       <button onclick="attack()">Attack</button>
     </div>
   </div>

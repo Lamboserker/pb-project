@@ -1,8 +1,8 @@
 # pb-project
-This will be my personal Project for the subject: programming basics
+This will be my personal project for the subject: programming basics
 
-## Brainstorm Project
+## Brainstorm project
 
-special Characters with different types of Power(attacks, defense, etc.)
-If two Characters are fighting, it depends what kind of type the Character is. (i.e. Whater Character cannot win against a electricity-Character or a fire-Character cannot win against a whater-Character)
+special characters with different types of power(attacks, defense, etc.)
+If two characters are fighting, it depends what kind of type the character is. (i.e. a water character cannot win against a electricity character or a fire character cannot win against a water character)
 
